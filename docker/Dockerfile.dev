@@ -1,0 +1,15 @@
+FROM node:14.16.1
+
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+
+COPY package.json yarn.lock ./
+
+RUN mkdir -p client
+
+COPY client/package.json client/yarn.lock ./client/
+
+RUN yarn install --pure-lockfile && cd client && yarn install --pure-lockfile && npm rebuild node-sass && cd ..
+
+EXPOSE 80
