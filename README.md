@@ -1,4 +1,4 @@
-# BankPortalAngular
+# HRM
 
 ## Prerequisites
 
